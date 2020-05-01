@@ -1,6 +1,6 @@
 # Requirements brainstorming session
 
-Date: 25/04/2020
+Date: 01/05/2020
 
 Defining the initial concept for the application.
 
@@ -22,5 +22,5 @@ Actor functionalities:
         - User can delete his/her message (for himself/ herself/ everyone in the chat)
         - User can't delete other message than his/her own
         
-        
+UI draft: ![UI draft](./img/UI_design.png "UI draft")
         
