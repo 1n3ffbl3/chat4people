@@ -1,11 +1,19 @@
 import React from 'react';
-import UserBox from '../src/components/UserBox'
+
+import styles from './App.module.scss';
+import UserBox from './components/UserBox/UserBox';
+import ChatBox from './components/ChatBox/ChatBox';
+import Sidebar from './components/Sidebar/Sidebar';
+
 
 function App() {
   return (
     <>
-    <h1>chat4people</h1>
-    <UserBox/>
+      <div className={styles.chat}>
+        <UserBox/>
+        <ChatBox/>
+        <Sidebar/>
+      </div>
     </>
   );
 }
