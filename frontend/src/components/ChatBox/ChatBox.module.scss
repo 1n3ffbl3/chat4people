@@ -1,7 +1,7 @@
 .chatBoxContainer {
   background-color: blueviolet;
-  box-sizing: content-box;  
-  width: 500px;
-  height: 400px;
+  box-sizing: border-box;
+  height: 100vh;
   padding: 30px;
+  flex: 3;
 }

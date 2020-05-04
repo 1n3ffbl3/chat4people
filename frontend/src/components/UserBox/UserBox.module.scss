@@ -1,7 +1,7 @@
 .userBoxContainer {
   background-color: green;
-  box-sizing: content-box;  
-  width: 300px;
-  height: 400px;
+  box-sizing: border-box;
+  height: 100vh;
   padding: 30px;
+  flex: 1;
 }
