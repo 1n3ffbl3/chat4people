@@ -1,7 +1,31 @@
-.chatBoxContainer {
+.chatContainer {
   background-color: blueviolet;
   box-sizing: border-box;
   height: 100vh;
   padding: 30px;
   flex: 3;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+.chatBox {
+  border: 5px solid white;
+  padding: 0;
+  margin: 0;
+  flex: 10;
+}
+
+.messageBox {
+  border: 3px dotted yellow;
+  padding: 0;
+  margin: 0;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.msgInput {
+  height: 100%;
 }
