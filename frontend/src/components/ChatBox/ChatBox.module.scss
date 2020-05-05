@@ -1,5 +1,7 @@
+@import "utilities/variables";
+
 .chatContainer {
-  background-color: blueviolet;
+  background-color: $blueviolet;
   box-sizing: border-box;
   height: 100vh;
   padding: 30px;
@@ -11,14 +13,14 @@
 }
 
 .chatBox {
-  border: 5px solid white;
+  border: 5px solid $white;
   padding: 0;
   margin: 0;
   flex: 10;
 }
 
 .messageBox {
-  border: 3px dotted yellow;
+  border: 3px dotted $color-primary;
   padding: 0;
   margin: 0;
   flex: 2;
