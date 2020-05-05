@@ -1,0 +1,13 @@
+.contactList {
+  border: 4px dotted red;
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.list {
+  list-style-type: none;
+  margin: 0;
+  padding:0;
+}
