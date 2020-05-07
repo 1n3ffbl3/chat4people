@@ -1,0 +1,24 @@
+@import "utilities/variables";
+
+.messageBox {
+  border: 3px dotted $color-primary;
+  background: greenyellow;
+  box-sizing: border-box;
+}
+
+.msgType {
+  display: block;
+  overflow: hidden;
+  min-height: 40px;
+  line-height: 20px;
+  border: 5px solid red;
+  z-index: 9999;
+  user-select: text;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+.msgType[contenteditable]:empty::before {
+  content: "Type a message";
+  color: gray;
+}
