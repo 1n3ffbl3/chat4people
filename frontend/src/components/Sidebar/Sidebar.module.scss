@@ -1,5 +1,7 @@
+@import "utilities/variables";
+
 .sidebarContainer {
-  background-color: yellow;
+  background-color: $yellow;
   box-sizing: border-box;  
   height: 100vh;
   padding: 30px;

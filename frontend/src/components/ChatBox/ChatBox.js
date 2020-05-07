@@ -1,15 +1,23 @@
 import React from 'react';
+
 import styles from './ChatBox.module.scss';
+import MessageBox from '../MessageBox/MessageBox.js';
 
 const ChatBox = () => (
   <>
     <div className={styles.chatContainer}>
       <div className={styles.chatBox}>
-        chatBox
+        <div className={styles.messages}>
+          <div className={styles.messagesUser1}>
+            test1
+          </div>
+          <div className={styles.messagesUser2}>
+            test2
+          </div>
+  
+        </div>
       </div>
-      <div className={styles.messageBox}>
-        <input className={styles.msgInput} placeholder="Type your message..." />
-      </div>
+      <MessageBox />
     </div>
   </>
 );

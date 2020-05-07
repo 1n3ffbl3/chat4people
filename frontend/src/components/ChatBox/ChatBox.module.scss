@@ -17,17 +17,38 @@
   padding: 0;
   margin: 0;
   flex: 10;
-}
-
-.messageBox {
-  border: 3px dotted $color-primary;
-  padding: 0;
-  margin: 0;
-  flex: 2;
   display: flex;
   flex-direction: column;
 }
 
-.msgInput {
-  height: 100%;
+.messages {
+  display: flex;
+  flex-direction: column;
+  padding-right: 9%;
+  padding-left: 9%;
+  margin-top: $small;
+
+  &User1 {
+    border: 3px solid red;
+    max-width: 65%;
+    padding: 2px;
+    border-radius: 0 7.5px 7.5px 7.5px;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    line-height: 20px;
+    margin-bottom: $small;
+  }
+
+  &User2 {
+    border: 3px solid $yellow;
+    max-width: 65%;
+    padding: 2px;
+    align-self: flex-end;
+    border-radius: 7.5px 0 7.5px 7.5px;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    line-height: 20px;
+    margin-bottom: $small;
+  }
 }
+
