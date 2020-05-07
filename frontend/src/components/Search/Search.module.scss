@@ -1,0 +1,45 @@
+@import "utilities/variables";
+
+.inputWrapper {
+  position: relative;
+  margin: 24px 24px 24px 0px;
+}
+
+.bar {
+  height: 2px;
+  width: 100%;
+  background: $color-primary;
+  transition: 0.1s all;
+}
+
+.label {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  font-size: $extra-large;
+  color: $dark-gray;
+  transition: 0.2s ease-out all;
+}
+
+.searchInput {
+  color: $dark-gray;
+  font-size: $large;
+  border: none;
+  line-height: 22px;
+  width: 100%;
+  background: none;
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.searchInput:focus + .label {
+  top: -22px;
+  font-size: 13px;
+}
+
+.searchInput:not(:placeholder-shown) + .label {
+  top: -22px;
+  font-size: 13px;
+}

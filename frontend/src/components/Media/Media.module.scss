@@ -1,0 +1,13 @@
+@import "utilities/variables";
+
+
+.mediaContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.media {
+  border: 2px solid black;
+  width: 80px;
+  height: 80px;
+}

@@ -1,7 +1,8 @@
 import React from 'react';
 
-import ContactList from './ContactList';
 import styles from './UserBox.module.scss';
+import ContactList from './ContactList';
+import Search from '../Search/Search';
 import rabbit from '../../img/rabbitTime.jpg';
 
 const UserBox = () => (
@@ -11,8 +12,8 @@ const UserBox = () => (
         <img className={styles.img} src={rabbit}></img>
       </div>
       <div className={styles.ownerDetails}>
-        <span>USER LOGIN</span>
-        <input placeholder='search'></input>
+        <h5 className={styles.userLogin}>user</h5>
+        <Search/>
       </div>
     </div>
     <ContactList/>
