@@ -19,8 +19,18 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'GET /users': 'users/all',
-  'GET /users/:id': 'users/find-one'
+  'GET /users': 'users/find-users',
+  'GET /users/:userId': 'users/find-user',
+  'POST /users': 'users/create-user',
+
+  'GET /users/:userId/conversations': 'users/conversations/find-conversations',
+  'GET /users/:userId/conversations/:conversationId': 'users/conversations/find-conversation',
+  'POST /users/:userId/conversations': 'users/conversations/create-conversation',
+
+  'GET /users/:userId/conversations/:conversationId/messages': 'users/conversations/messages/find-msgs',
+  'GET /users/:userId/conversations/:conversationId/messages/:messageId': 'users/conversations/messages/find-msg',
+  'POST /users/:userId/conversations/:conversationId/messages': 'users/conversations/messages/create-msg',
+
 
   /***************************************************************************
   *                                                                          *
