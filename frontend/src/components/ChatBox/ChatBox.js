@@ -17,8 +17,8 @@ const ChatBox = () => {
     fetchData();
   }, []);
 
-  const msgStyle = id => 1 === id ? styles.messagesUser1 : styles.messagesUser2;
-  const addMsg = txt => setMessages([...messages, { id: 2, message: txt }]);
+  const msgStyle = id => 2 === id ? styles.messagesUser1 : styles.messagesUser2;
+  const addMsg = (msg) => setMessages([...messages, {message: msg, id: 1}]);
 
   return (
     <>
@@ -33,7 +33,7 @@ const ChatBox = () => {
           </div>
         </div>
         { /* TODO: Add better prop name to increase readibility */}
-        <MessageBox sendMessage={addMsg} />
+        <MessageBox senderId="1" onMsgSent={addMsg} />
       </div>
     </>
   );
