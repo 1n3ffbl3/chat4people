@@ -4,6 +4,9 @@ module.exports = {
   description: 'Adds a message to conversation.',
 
   inputs: {
+    userId: {
+      type: 'number',
+    },
     conversationId: {
       type: 'number',
     },
@@ -11,9 +14,9 @@ module.exports = {
 
   exits: {},
 
-  fn: async function ({ conversationId }) {
+  fn: async function ({ conversationId, userId }) {
     const { content } = this.req.body;
-    const message = await Message.create({ content, conversation: conversationId }).fetch();
+    const message = await Message.create({ content, conversation: conversationId, senderId: userId }).fetch();
 
     // All done
     return message;

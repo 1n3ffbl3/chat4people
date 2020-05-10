@@ -1,49 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import styles from './ChatBox.module.scss';
 import MessageBox from '../MessageBox/MessageBox.js';
 
 
-const mockedMessages = [
-  {
-    id: 1,
-    message: 'test 1 ',
-  },
-  {
-    id: 2,
-    message: 'test 2 ',
-  },
-  {
-    id: 2,
-    message: 'test 3 ',
-  },
-  {
-    id: 1,
-    message: 'test 4 ',
-  },
-];
-
-
 const ChatBox = () => {
-  const [messages, setMessages] = useState(mockedMessages);
+  const [messages, setMessages] = useState([]);
 
-  const msgStyle = id => 1 === id ?  styles.messagesUser1 : styles.messagesUser2;
-  const addMsg = txt => setMessages([...messages, {id: 2, message: txt}]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('http://localhost:1337/users/1/conversations/1/messages');
+      const data = await response.json();
+      const msgs = data.map(msg => ({ id: msg.senderId, message: msg.content }));
+      setMessages(msgs);
+    }
+    fetchData();
+  }, []);
 
-  return(
+  const msgStyle = id => 1 === id ? styles.messagesUser1 : styles.messagesUser2;
+  const addMsg = txt => setMessages([...messages, { id: 2, message: txt }]);
+
+  return (
     <>
       <div className={styles.chatContainer}>
         <div className={styles.chatBox}>
           <div className={styles.messages}>
-            { messages.map(msg => (
+            {messages.map(msg => (
               <div className={msgStyle(msg.id)}>
                 {msg.message}
               </div>
             ))}
           </div>
         </div>
-        { /* TODO: Add better prop name to increase readibility */ }
-        <MessageBox sendMessage={addMsg}/> 
+        { /* TODO: Add better prop name to increase readibility */}
+        <MessageBox sendMessage={addMsg} />
       </div>
     </>
   );

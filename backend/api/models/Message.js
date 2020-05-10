@@ -9,6 +9,11 @@ module.exports = {
       type: 'string', 
       required: true,
     },
+    senderId: {
+      type: 'number',
+      required: true,
+      description: 'This field contains an id of a user who sent the message.'
+    },
 
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
