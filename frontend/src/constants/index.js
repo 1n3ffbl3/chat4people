@@ -1,0 +1,9 @@
+const ACTIONS = {
+  ADD_MESSAGE : 'ADD_MESSAGE',
+  DELETE_MESSAGE: 'DELETE_MESSAGE',
+  ADD_MESSAGES: 'ADD_MESSAGES',
+};
+
+Object.freeze(ACTIONS);
+
+export default ACTIONS;

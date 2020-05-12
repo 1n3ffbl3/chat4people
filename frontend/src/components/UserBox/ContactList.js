@@ -88,7 +88,7 @@ const ContactList = () => {
       setContacts(contactData);
     };
 
-    fetchContacts();
+    // fetchContacts();
   }, []);
 
   return (
