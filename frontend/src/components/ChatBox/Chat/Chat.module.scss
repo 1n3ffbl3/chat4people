@@ -1,8 +1,7 @@
 @import "utilities/variables";
 
 .chatBox {
-  background-image: url('../../../img/chatBackground.png');
-  background-position: center;
+  background: linear-gradient(180deg, $cyan 0%, $heather 100%);
   opacity: 0.9;
   padding: 0;
   margin: 0;
