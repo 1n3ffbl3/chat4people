@@ -27,7 +27,8 @@
 }
 
 .msg {
-  font-size: $large;
+  font-size: $medium;
+  color: $dark-gray;
   width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;

@@ -1,12 +1,15 @@
 @import "utilities/variables";
 
 .chatBox {
-  border: 5px solid $white;
+  background-image: url('../../../img/chatBackground.png');
+  background-position: center;
+  opacity: 0.9;
   padding: 0;
   margin: 0;
   flex: 10;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
 }
 
 .messages {
@@ -17,9 +20,10 @@
   margin-top: $small;
 
   &User1 {
-    border: 3px solid red;
+    border: 3px solid $light-yellow;
+    background-color: $light-yellow;
     max-width: 65%;
-    padding: 2px;
+    padding: 6px 7px 8px 9px;
     border-radius: 0 7.5px 7.5px 7.5px;
     white-space: pre-wrap;
     overflow-wrap: break-word;
@@ -28,9 +32,10 @@
   }
 
   &User2 {
-    border: 3px solid $yellow;
+    border: 3px solid $light-blue;
+    background-color: $light-blue;
     max-width: 65%;
-    padding: 2px;
+    padding: 6px 7px 8px 9px;
     align-self: flex-end;
     border-radius: 7.5px 0 7.5px 7.5px;
     white-space: pre-wrap;
