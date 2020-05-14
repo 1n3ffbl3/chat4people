@@ -1,0 +1,22 @@
+{
+  "name": "migrations",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "chat4people"
+  },
+  "author": "1n3ffbl3",
+  "license": "ISC",
+  "dependencies": {
+    "knex": "^0.21.1"
+  },
+  "devDependencies": {
+    "pg": "^8.2.0"
+  }
+}

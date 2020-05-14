@@ -62,7 +62,7 @@ const initialState = {
     },
     {
       img: rabbit,
-      name: "Amelia Earhart ",
+      name: "Amelia Earhart",
       msg: "Women must try to do things as men have tried. When they fail, their failure must be but a challenge to others.",
     },
   ],
