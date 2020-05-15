@@ -1,4 +1,4 @@
-const contacts = require('./testData/applicationuserData');
+const { messages, conversations, applicationUsers, userConversations } = require('./testData/index');
 
 const knex = require('knex')({
   client: 'postgres',
@@ -12,9 +12,21 @@ const knex = require('knex')({
   debug: true
 });
 
-knex('applicationuser').insert(contacts)
-.then(() => {
-  console.log('finished');
-}).catch(e => {
-  console.error(e);
-});
+const insertTestData = async () => {
+  try {
+    await knex('applicationuser').insert(applicationUsers);
+
+    await knex('conversation').insert(conversations);
+
+    await knex('applicationuser_conversations__conversation_users').insert(userConversations);
+
+    await knex('message').insert(messages);
+
+    process.exit(0);
+
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+insertTestData();

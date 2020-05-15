@@ -3,15 +3,18 @@ module.exports = {
 
   description: 'Finds messages.',
 
-  inputs: {},
+  inputs: {
+    conversationId: {
+      type: 'number',
+    },
+  },
 
   exits: {},
 
-  fn: async function () {
+  fn: async function ({ conversationId }) {
 
-    const messages = await Message.find();
-
+    const messages = await Message.find({ id: conversationId });
     // All done
     return messages;
   }
-}
+};

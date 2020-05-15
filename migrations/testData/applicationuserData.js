@@ -1,4 +1,13 @@
-const contacts = [
+const applicationUsers = [
+  {
+    createdAt: new Date().getTime(),
+    updatedAt: new Date().getTime(),
+    id: 1,
+    username: '1n3ffbl3',
+    firstname: 'Marta',
+    lastname: 'Kowalsky',
+    password: null
+  },
   {
     createdAt: new Date().getTime(),
     updatedAt: new Date().getTime(),
@@ -110,4 +119,4 @@ const contacts = [
 
 ];
 
-module.exports = contacts;
+module.exports = applicationUsers;

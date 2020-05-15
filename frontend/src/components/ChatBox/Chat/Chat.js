@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import styles from './Chat.module.scss';
@@ -6,31 +6,36 @@ import { addMessages } from '../../../actions/index';
 
 
 const mapStateToProps = state => {
-  return { messages: state.messages };
-};
-
-const mapDispachToProps = dispatch => {
-  return {
-    addMessages: messages => dispatch(addMessages(messages))
+  return { 
+    messages: state.messages, 
+    activeUserId: state.activeUser.id, 
+    activeConversationId: state.activeConversation.id, 
   };
 };
 
-const ConnectedChat = ({ messages, addMessages }) => {
-  // const [messages, setMessages] = useState([]);
+const mapDispachToProps = dispatch => {
+  return { addMessages: messages => dispatch(addMessages(messages)) };
+};
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const response = await fetch('http://localhost:1337/users/1/conversations/1/messages');
-  //     const data = await response.json();
-  //     const msgs = data.map(msg => ({ id: msg.senderId, message: msg.content }));
-  //     addMessages(msgs);
-  //   }
-  //   fetchData();
-  // }, []);
+const ConnectedChat = ({ messages, addMessages, activeUserId, activeConversationId }) => {
 
-  const msgStyle = id => 2 === id ? styles.messagesUser1 : styles.messagesUser2;
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`http://localhost:1337/users/${activeUserId}/conversations/${activeConversationId}/messages`);
+      const data = await response.json();
+      const msgs = data.map(msg => ({ id: msg.senderId, message: msg.content }));
+      addMessages(msgs);
+    }
 
-  console.log('messages', messages);
+    if (!activeConversationId) {
+      return;
+    }
+
+    fetchData();
+  }, [activeConversationId]);
+
+
+  const msgStyle = id => id === activeUserId ? styles.messagesUser1 : styles.messagesUser2;
 
   return (
     <div className={styles.chatBox}>
