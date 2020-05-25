@@ -13,7 +13,7 @@ module.exports = {
 
   fn: async function ({ conversationId }) {
 
-    const messages = await Message.find({ id: conversationId });
+    const messages = await Message.find({ conversation: conversationId });
     // All done
     return messages;
   }

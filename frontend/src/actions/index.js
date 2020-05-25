@@ -29,6 +29,17 @@ export const activeUser = (user) => {
   return { type: ACTIONS.SET_ACTIVE_USER, activeUser: user }
 };
 
-export const activeConversation = (conversationId) => {
-  return { type: ACTIONS.SET_ACTIVE_CONVERSATION, activeConversation: { id: conversationId }}
+export const activeConversation = (conversationId, idOfReceiver) => {
+  return { type: ACTIONS.SET_ACTIVE_CONVERSATION, activeConversation: { conversationId, idOfReceiver }}
+};
+
+export const addAllContacts = (allContacts) => {
+  return { type: ACTIONS.ADD_ALL_CONTACTS, allContacts }
+};
+
+export const searchRequest = (searchPhrase) => {
+  return { type: ACTIONS.SEARCH_REQUEST, search: {
+    isActive: searchPhrase && searchPhrase.length > 0,
+    searchPhrase,
+  }}
 };

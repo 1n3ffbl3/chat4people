@@ -13,11 +13,12 @@ module.exports = {
 
   fn: async function ({ userId }) {
 
-    const { idOfReceiver, name } = this.req.body;
-    const conversation = await Conversation.create({ name }).fetch();
+    const { idOfReceiver } = this.req.body;
+
+    const conversation = await Conversation.create().fetch();
     await Conversation.addToCollection(conversation.id, 'users', [userId, idOfReceiver]);
 
     // All done
     return conversation;
   }
-}
+};

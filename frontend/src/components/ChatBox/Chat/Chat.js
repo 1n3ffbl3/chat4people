@@ -9,17 +9,18 @@ const mapStateToProps = state => {
   return { 
     messages: state.messages, 
     activeUserId: state.activeUser.id, 
-    activeConversationId: state.activeConversation.id, 
+    activeConversationId: state.activeConversation.conversationId, 
   };
 };
 
-const mapDispachToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
   return { addMessages: messages => dispatch(addMessages(messages)) };
 };
 
 const ConnectedChat = ({ messages, addMessages, activeUserId, activeConversationId }) => {
-
+  // TODO: Move to ChatBox (parent)
   useEffect(() => {
+
     const fetchData = async () => {
       const response = await fetch(`http://localhost:1337/users/${activeUserId}/conversations/${activeConversationId}/messages`);
       const data = await response.json();
@@ -35,7 +36,9 @@ const ConnectedChat = ({ messages, addMessages, activeUserId, activeConversation
   }, [activeConversationId]);
 
 
-  const msgStyle = id => id === activeUserId ? styles.messagesUser1 : styles.messagesUser2;
+  const msgStyle = id => {
+    return id !== activeUserId ? styles.messagesUser1 : styles.messagesUser2;
+  }
 
   return (
     <div className={styles.chatBox}>
@@ -52,6 +55,6 @@ const ConnectedChat = ({ messages, addMessages, activeUserId, activeConversation
 
 // TODO: add propTypes
 
-const Chat = connect(mapStateToProps, mapDispachToProps)(ConnectedChat);
+const Chat = connect(mapStateToProps, mapDispatchToProps)(ConnectedChat);
 
 export default Chat;

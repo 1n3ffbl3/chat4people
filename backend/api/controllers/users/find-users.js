@@ -10,7 +10,17 @@ module.exports = {
   fn: async function () {
     const users = await ApplicationUser.find();
 
+    const mappedUsers = users.map(user => {
+      const { id, firstname, lastname } = user;
+
+      return {
+        id,
+        firstname,
+        lastname,
+      };
+    });
+
     // All done.
-    return users;
+    return mappedUsers;
   }
 };

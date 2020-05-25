@@ -1,13 +1,15 @@
 @import "utilities/variables";
 
 .item {
-  border-bottom: 1px solid $gray;
+  border-bottom: 1px solid $light-gray;
   display: flex;
   padding: 15px;
 }
 
 .imgWrapper {
-  flex: 1
+  flex: 1;
+  max-width: 50px;
+  max-height: 50px;
 }
 
 .img {

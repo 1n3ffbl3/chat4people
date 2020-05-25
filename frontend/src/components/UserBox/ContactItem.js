@@ -7,13 +7,13 @@ import { activeConversation } from './../../actions';
 
 
 const mapDispachToProps = dispatch => {
-  return { setActiveConversation: conversationId => dispatch(activeConversation(conversationId)) };
+  return { setActiveConversation: (conversationId, idOfReceiver) => dispatch(activeConversation(conversationId, idOfReceiver)) };
 };
 
-const ConnectedContactItem = ({ image, userName, message, conversationId, setActiveConversation }) => {
+const ConnectedContactItem = ({ idOfReceiver, image, userName, message, conversationId, setActiveConversation }) => {
   
   const handleActiveContact = () => {
-    setActiveConversation(conversationId);
+    setActiveConversation(conversationId, idOfReceiver);
   };
 
   return (
@@ -30,6 +30,7 @@ const ConnectedContactItem = ({ image, userName, message, conversationId, setAct
 };
 
 ConnectedContactItem.propTypes = {
+  idOfReceiver: PropTypes.number,
   image: PropTypes.string,
   userName: PropTypes.string,
   message: PropTypes.string,

@@ -14,7 +14,15 @@ const messages = [
     content: 'How wonderful it is that nobody need wait a single moment before starting to improve the world.',
     senderId: 3,
     conversation: 2,
-  }
+  },
+  {
+    id: 3,
+    createdAt: new Date().getTime(),
+    updatedAt: new Date().getTime(),
+    content: 'xyz',
+    senderId: 4,
+    conversation: 3,
+  },
 ];
 
 module.exports = messages;

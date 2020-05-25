@@ -22,7 +22,7 @@ const userConversations = [
     id: 4,
     applicationuser_conversations: 3, // applicationUserId
     conversation_users: 2 // conversationId
-  }
+  },
 ];
 
 module.exports = userConversations;

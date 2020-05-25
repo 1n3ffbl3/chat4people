@@ -7,14 +7,31 @@ import { addContacts } from '../../actions/index';
 import rabbit from '../../img/rabbitTime.jpg';
 
 const mapStateToProps = state => {
-  return { contacts: state.contacts, activeUserId: state.activeUser.id };
+  return { 
+    contacts: state.contacts,
+    allContacts: state.allContacts,
+    activeUserId: state.activeUser.id,
+    search: state.search
+  };
 };
 
 const mapDispatchToProps = dispatch => {
   return { addContacts: contacts => dispatch(addContacts(contacts))};
 };
 
-const ConnectedContactList = ({ contacts, addContacts, activeUserId }) => {
+const enrichContactData = (conversationContacts, allContacts) => {
+  return allContacts.map(contact => {
+    // User with whom we have a conversatsion, if we don't undefined is returned
+    const conversationUser = conversationContacts.find(c => c.id === contact.id);
+    if (!conversationUser) {
+      return contact;
+    }
+
+    return conversationUser;
+  })
+}
+
+const ConnectedContactList = ({ contacts, addContacts, allContacts, activeUserId, search }) => {
 
   useEffect(() => {
     const fetchContacts = async () => {
@@ -39,13 +56,24 @@ const ConnectedContactList = ({ contacts, addContacts, activeUserId }) => {
     fetchContacts();
   }, []);
 
+  const { isActive: isSearchActive, searchPhrase } = search;
+  let contactsToDisplay = [];
+  
+  if (isSearchActive) {
+    const filteredContacts = allContacts.filter(contact => contact.name.toLowerCase().includes(searchPhrase.toLowerCase()))
+    contactsToDisplay = enrichContactData(contacts, filteredContacts);
+  } else {
+    contactsToDisplay = contacts;
+  }
+
   return (
     <div className={styles.contactList}>
       <ul className={styles.list}>
         {
-          contacts.map((contact) => (
+          contactsToDisplay.map((contact) => (
             <ContactItem
               key={contact.id}
+              idOfReceiver={contact.id}
               image={contact.img}
               userName={contact.name}
               message={contact.msg}
