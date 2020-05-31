@@ -4,7 +4,7 @@ const initialState = {
   messages: [],
   contacts: [],
   allContacts: [],
-  activeUser: { id: 1 },
+  activeUser: {},
   activeConversation: {},
   search: {
     isActive: false,
@@ -37,6 +37,8 @@ const rootReducer = (state = initialState, action) => {
           isActive: action.search.isActive,
           searchPhrase: action.search.searchPhrase
         }});
+    case ACTIONS.LOGIN:
+      return Object.assign({}, state, { activeUser: action.user });
     default:
       return state;
   }

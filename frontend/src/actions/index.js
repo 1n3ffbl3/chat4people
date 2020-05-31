@@ -43,3 +43,7 @@ export const searchRequest = (searchPhrase) => {
     searchPhrase,
   }}
 };
+
+export const logIn = (user) => {
+  return { type: ACTIONS.LOGIN, user };
+};

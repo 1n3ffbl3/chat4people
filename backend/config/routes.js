@@ -31,6 +31,7 @@ module.exports.routes = {
   'GET /users/:userId/conversations/:conversationId/messages/:messageId': 'users/conversations/messages/find-msg',
   'POST /users/:userId/conversations/:conversationId/messages': 'users/conversations/messages/create-msg',
 
+  'POST /auth/login': 'authentication/log-in',
 
   /***************************************************************************
   *                                                                          *

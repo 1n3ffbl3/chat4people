@@ -1,0 +1,63 @@
+@import "utilities/variables";
+
+.modal {
+  padding: 70px 80px 50px;
+  top: 40%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 500px;
+  min-width: 300px;
+  background-color: #fff;
+  box-shadow: 0 20px 40px -5px rgba(206,187,155,.3);
+  position: fixed;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  position: relative;
+  margin: 24px 24px 24px 0px;
+}
+
+.label {
+  position: absolute;
+  top: -22px;
+  left: 0;
+  font-size: 13px;
+  color: $dark-gray;
+  transition: 0.2s ease-out all;
+}
+
+.input {
+  color: $dark-gray;
+  font-size: $large;
+  border: none;
+  line-height: 22px;
+  width: 100%;
+  background: none;
+  border-bottom: 1px solid $dark-gray;
+}
+
+.input:focus {
+  border-bottom: 1px solid $sea-blue;
+}
+
+.input:focus + .label {
+  color: $sea-blue;
+}
+
+
+.buttonForm {
+  border: 1px solid $sea-blue;
+  background-color: white;
+}
