@@ -14,7 +14,7 @@
   "author": "1n3ffbl3",
   "license": "ISC",
   "dependencies": {
-    "knex": "^0.21.1"
+    "knex": "^2.4.0"
   },
   "devDependencies": {
     "pg": "^8.2.0"
